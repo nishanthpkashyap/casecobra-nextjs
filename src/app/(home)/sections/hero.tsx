@@ -115,7 +115,10 @@ export default function Hero() {
               width={80}
               sizes="80px"
             />
-            <Phone className="w-64" imgSrc="/images/testimonials/1.jpg" />
+            <Phone
+              className="w-64 !rounded-10"
+              imgSrc="/images/testimonials/1.jpg"
+            />
           </div>
         </div>
       </Container>

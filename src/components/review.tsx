@@ -46,7 +46,7 @@ export function ReviewGrid() {
   return (
     <div
       ref={containerRef}
-      className="relative -mx-4 mt-16 grid h-196 max-h-150vh grid-cols-1 items-start gap-8 overflow-hidden px-4 sm:mt-20 md:grid-cols-2 lg:grid-cols-3"
+      className="relative -mx-4 mt-16 grid h-196 max-h-150vh grid-cols-1 items-start gap-8 overflow-hidden px-4 sm:mt-20 min-[500px]:grid-cols-2 lg:grid-cols-3"
     >
       {isInView && (
         <>
@@ -62,7 +62,7 @@ export function ReviewGrid() {
           />
           <ReviewColumn
             reviews={[...column2, ...column3[1]]}
-            className="hidden md:block"
+            className="hidden min-[500px]:block"
             reviewClassName={(reviewIndex) =>
               reviewIndex >= column2.length ? "lg:hidden" : ""
             }
@@ -158,7 +158,10 @@ export function Review({ imgSrc, className, ...props }: Review) {
       style={{ animationDelay: animationDelay }}
       {...props}
     >
-      <Phone imgSrc={imgSrc} />
+      <Phone
+        imgSrc={imgSrc}
+        className="mx-auto w-fit rounded-2xl min-[550px]:rounded-8.5"
+      />
     </div>
   );
 }

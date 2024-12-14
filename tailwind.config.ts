@@ -52,7 +52,9 @@ export default {
   			}
   		},
   		borderRadius: {
+			'8.5': "2.125rem",
 			9: "2.25rem",
+			10: "2.5rem",
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
