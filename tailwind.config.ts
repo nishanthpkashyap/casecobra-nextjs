@@ -52,10 +52,41 @@ export default {
   			}
   		},
   		borderRadius: {
+			9: "2.25rem",
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		animation: {
+			"marquee": "marquee var(--marquee-duration) linear infinite",
+			"fade-in": "fade-in 0.5s linear forwards",
+		},
+		keyframes: {
+			"marquee": {
+				"100%": {
+					transform: "translateY(-50%)",
+				}
+			},
+			"fade-in": {
+				from: {
+					"opacity": "0",
+				},
+				to: {
+					"opacity": "1",
+				}
+			},
+		},
+		zIndex: {
+			100: '100',
+		},
+		strokeWidth: {
+			'3': '3px',
+		},
+		spacing: {
+			100: "25rem",
+			196: "49rem",
+			'150vh': "150vh",
+		},
   	}
   },
   plugins: [require("tailwindcss-animate")],
