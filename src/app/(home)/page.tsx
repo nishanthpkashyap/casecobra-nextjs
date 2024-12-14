@@ -4,7 +4,7 @@ import { OrderNow } from "./sections/orderNow";
 
 export default function Home() {
   return (
-    <main className="bg-slate-50">
+    <div className="bg-slate-50">
       {/* Hero section */}
       <Hero />
 
@@ -13,6 +13,6 @@ export default function Home() {
 
       {/* Order now section */}
       <OrderNow />
-    </main>
+    </div>
   );
 }

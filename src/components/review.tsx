@@ -11,6 +11,7 @@ import Container from "./container";
 import { useInView } from "framer-motion";
 import { cn, splitArray } from "@/lib/utils";
 import Phone from "./phone";
+import Image from "next/image";
 
 const PHONES = [
   "/images/testimonials/1.jpg",
@@ -24,11 +25,13 @@ const PHONES = [
 export function Reviews() {
   return (
     <Container className="relative max-w-5xl">
-      <img
+      <Image
         aria-hidden
         src="/images/what-people-are-buying.png"
         className="absolute select-none hidden xl:block -left-32 top-1/3"
         alt=""
+        height={143}
+        width={193}
       />
       <ReviewGrid />
     </Container>
