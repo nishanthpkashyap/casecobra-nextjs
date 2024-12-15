@@ -18,7 +18,8 @@ export default function UploadFile() {
 
   const { startUpload, isUploading } = useUploadThing("imageUploader", {
     onClientUploadComplete: ([data]) => {
-      const configId = data.serverData?.configId;
+      const { configId } = data?.serverData ?? {};
+      console.log("from server:\n", configId);
       startTransition(() => {
         router.push(`/configure/design?id=${configId}`);
       });
@@ -26,10 +27,13 @@ export default function UploadFile() {
     onUploadProgress(p) {
       setUploadProgress(p);
     },
+    onUploadError(error) {
+      console.log("upload error:\n", error.message);
+    },
   });
 
   const handleOnDropAccepted = (acceptedFiles: File[]) => {
-    startUpload(acceptedFiles, { configId: undefined });
+    startUpload(acceptedFiles, { configId: "lol" });
     setIsDragOver(false);
   };
   const handleOnDropRejected = (rejectedFiles: FileRejection[]) => {
@@ -66,7 +70,13 @@ export default function UploadFile() {
           {({ getRootProps, getInputProps }) => {
             return (
               <div
-                className="h-full w-full flex-1 flex flex-col items-center justify-center cursor-pointer"
+                className={cn(
+                  `h-full w-full flex-1 flex flex-col items-center justify-center ${
+                    !isUploading
+                      ? "cursor-pointer"
+                      : "pointer-events-none !cursor-not-allowed"
+                  }`
+                )}
                 {...getRootProps()}
               >
                 <input {...getInputProps()} />
